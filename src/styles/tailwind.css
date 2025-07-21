@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors - Enhanced Theme */
+    --color-background: #FAFBFC; /* Light gray background */
+    --color-foreground: #1E1E1E; /* Primary dark color */
+    --color-border: #E5E7EB;
+    --color-input: #FFFFFF;
+    --color-ring: #D4493D; /* Red accent color */
+    
+    /* Card Colors */
+    --color-card: #FFFFFF;
+    --color-card-foreground: #1E1E1E;
+    --color-popover: #FFFFFF;
+    --color-popover-foreground: #1E1E1E;
+    
+    /* Muted Colors */
+    --color-muted: #F9FAFB;
+    --color-muted-foreground: #927A5E; /* Brown/tan color */
+    
+    /* Primary Colors - Enhanced with new palette */
+    --color-primary: #1E1E1E; /* Dark primary */
+    --color-primary-foreground: #FFFFFF;
+    
+    /* Secondary Colors */
+    --color-secondary: #927A5E; /* Brown/tan secondary */
+    --color-secondary-foreground: #FFFFFF;
+    
+    /* Accent Colors */
+    --color-accent: #D4493D; /* Red accent */
+    --color-accent-foreground: #FFFFFF;
+    
+    /* Success Colors */
+    --color-success: #10B981;
+    --color-success-foreground: #FFFFFF;
+    
+    /* Warning Colors */
+    --color-warning: #F59E0B;
+    --color-warning-foreground: #FFFFFF;
+    
+    /* Error/Destructive Colors */
+    --color-error: #D4493D; /* Using red from palette */
+    --color-error-foreground: #FFFFFF;
+    --color-destructive: #D4493D;
+    --color-destructive-foreground: #FFFFFF;
+    
+    /* Dark theme colors */
+    --color-dark-background: #1E1E1E;
+    --color-dark-foreground: #FFFFFF;
+    --color-dark-muted: #2A2A2A;
+    --color-dark-muted-foreground: #927A5E;
+  }
+
+  /* Dark mode overrides */
+  .dark {
+    --color-background: #1E1E1E;
+    --color-foreground: #FFFFFF;
+    --color-card: #2A2A2A;
+    --color-card-foreground: #FFFFFF;
+    --color-popover: #2A2A2A;
+    --color-popover-foreground: #FFFFFF;
+    --color-muted: #2A2A2A;
+    --color-muted-foreground: #927A5E;
+    --color-border: #3A3A3A;
+    --color-input: #2A2A2A;
+    --color-primary: #FFFFFF;
+    --color-primary-foreground: #1E1E1E;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .shadow-soft {
+    box-shadow: 0 2px 8px rgba(30, 30, 30, 0.08);
+  }
+  
+  .shadow-elevated {
+    box-shadow: 0 12px 32px rgba(30, 30, 30, 0.12);
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(212, 73, 61, 0.3);
+  }
+  
+  .transition-smooth {
+    transition: all 200ms ease-out;
+  }
+  
+  .transition-layout {
+    transition: all 300ms ease-in-out;
+  }
+  
+  .transition-spring {
+    transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .transition-bounce {
+    transition: all 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .gradient-primary {
+    background: linear-gradient(135deg, #1E1E1E 0%, #2A2A2A 100%);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, #D4493D 0%, #E55A4D 100%);
+  }
+  
+  .gradient-secondary {
+    background: linear-gradient(135deg, #927A5E 0%, #A38B70 100%);
+  }
+}
+
+/* Custom button animations */
+@keyframes button-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+@keyframes button-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(212, 73, 61, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(212, 73, 61, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-button-press {
+  animation: button-press 150ms ease-out;
+}
+
+.animate-button-glow {
+  animation: button-glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
